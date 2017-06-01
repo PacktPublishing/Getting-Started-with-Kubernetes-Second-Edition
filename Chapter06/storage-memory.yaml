@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: memory-pd
+spec:
+  containers:
+  - image: nginx:latest
+    ports:
+    - containerPort: 80
+    name: memory-pd
+    volumeMounts:
+    - mountPath: /memory-pd
+      name: memory-volume
+  volumes:
+  - name: memory-volume
+    emptyDir:
+      medium: Memory

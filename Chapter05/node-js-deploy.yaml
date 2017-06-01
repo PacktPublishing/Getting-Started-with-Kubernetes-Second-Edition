@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: node-js-deploy
+  labels:
+    name: node-js-deploy
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: node-js-deploy
+    spec:
+      containers:
+      - name: node-js-deploy
+        image: jonbaier/pod-scaling:0.1
+        ports:
+        - containerPort: 80

@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: test-quotas
+  namespace: test
+spec:
+  hard: 
+    pods: 3
+    services: 1
+    replicationcontrollers: 1

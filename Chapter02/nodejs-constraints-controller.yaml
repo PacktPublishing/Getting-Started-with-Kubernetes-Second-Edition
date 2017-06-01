@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: node-js-constraints
+  labels:
+    name: node-js-constraints
+spec:
+  replicas: 3
+  selector:
+    name: node-js-constraints
+  template:
+    metadata:
+      labels:
+        name: node-js-constraints
+    spec:
+      containers:
+      - name: node-js-constraints
+        image: jonbaier/node-express-info:latest
+        ports:
+        - containerPort: 80
+        resources:
+            limits:
+              memory: "512Mi"
+              cpu: "1500m"

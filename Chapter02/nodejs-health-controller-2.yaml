@@ -1,0 +1,34 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: node-js-health
+  labels:
+    name: node-js-health
+spec:
+  replicas: 3
+  selector:
+    name: node-js-health
+  template:
+    metadata:
+      labels:
+        name: node-js-health
+    spec:
+      containers:
+      - name: node-js-health
+        image: jonbaier/node-express-info:latest
+        ports:
+        - containerPort: 80
+        livenessProbe:
+          # An HTTP health check 
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 30
+          timeoutSeconds: 1
+        readinessProbe:
+          # An HTTP health check 
+          httpGet:
+            path: /status/
+            port: 80
+          initialDelaySeconds: 30
+          timeoutSeconds: 1

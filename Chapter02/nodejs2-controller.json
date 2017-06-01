@@ -1,0 +1,44 @@
+{
+   "kind":"ReplicationController",
+   "apiVersion":"v1",
+   "id":"node-js2",
+   "metadata":{
+      "name":"node-js2",
+      "labels":{
+         "name":"node-js2",
+		 "app" :"node-js",
+         "deployment":"test"
+      }
+   },
+   "spec":{
+      "replicas":2,
+      "selector":{
+         "name":"node-js2",
+		 "app" :"node-js",
+         "deployment":"test"
+      },
+      "template":{
+         "metadata":{
+            "labels":{
+			   "name":"node-js2",
+			   "app" :"node-js",
+  			   "deployment":"test"
+            }
+         },
+         "spec":{
+            "containers":[
+               {
+                  "name":"node-js2",
+                  "image":"jonbaier/node-express-info:latest",
+                  "ports":[
+                     {
+                        "name":"nodejsPort",
+                        "containerPort":80
+                     }
+                  ]
+               }
+            ]
+         }
+      }
+   }
+}

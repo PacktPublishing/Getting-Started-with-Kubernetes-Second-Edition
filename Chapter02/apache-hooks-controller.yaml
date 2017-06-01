@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: apache-hook
+  labels:
+    name: apache-hook
+spec:
+  replicas: 3
+  selector:
+    name: apache-hook
+  template:
+    metadata:
+      labels:
+        name: apache-hook
+    spec:
+      containers:
+      - name: apache-hook
+        image: bitnami/apache:latest
+        ports:
+        - containerPort: 80
+        lifecycle:
+          postStart:
+            httpGet:
+              path: http://my.registration-server.com/register/
+              port: 80
+          preStop:
+            exec:
+              command: ["/usr/local/bin/apachectl","-k","graceful-stop"]

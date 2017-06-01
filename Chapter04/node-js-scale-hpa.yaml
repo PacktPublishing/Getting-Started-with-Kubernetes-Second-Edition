@@ -1,0 +1,12 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: node-js-scale
+spec:
+  minReplicas: 1
+  maxReplicas: 3
+  scaleTargetRef:
+    apiVersion: v1
+    kind: ReplicationController
+    name: node-js-scale
+  targetCPUUtilizationPercentage: 20

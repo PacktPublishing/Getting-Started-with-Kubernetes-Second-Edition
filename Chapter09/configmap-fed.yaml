@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: my-application-config
+  namespace: default
+data:
+  backend-service.url: my-backend-service

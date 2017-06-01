@@ -1,0 +1,27 @@
+apiVersion: extensions/v1beta1
+kind: ReplicaSet
+metadata:
+  name: node-js-rs
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: node-js-configmap-rs
+  template:
+    metadata:
+      labels:
+        name: node-js-configmap-rs
+    spec:
+      containers:
+      - name: configmap-pod
+        image: jonbaier/node-express-info:latest
+        ports:
+        - containerPort: 80
+          name: web
+        volumeMounts:
+          - name: configmap-volume
+            mountPath: /etc/config
+      volumes:
+        - name: configmap-volume
+          configMap:
+            name: my-application-config

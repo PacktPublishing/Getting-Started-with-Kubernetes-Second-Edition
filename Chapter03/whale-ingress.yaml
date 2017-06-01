@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: whale-ingress
+spec:
+  rules:
+  - host: a.whale.hey
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: whale-svc-a
+          servicePort: 80
+  - host: b.whale.hey
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: whale-svc-b
+          servicePort: 80 

@@ -1,0 +1,15 @@
+apiVersion: batch/v2alpha1
+kind: CronJob
+metadata:
+  name: long-task-cron
+spec:
+  schedule: "15 10 * * 6"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: long-task-cron
+            image: docker/whalesay
+            command: ["cowsay", "Developers! Developers! Developers! \n\n Saturday task complete!"]
+          restartPolicy: OnFailure

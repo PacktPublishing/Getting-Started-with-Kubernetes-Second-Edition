@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: node-js-multi
+  labels:
+    name: node-js-multi
+spec:
+  replicas: 3
+  selector:
+    name: node-js-multi
+  template:
+    metadata:
+      labels:
+        name: node-js-multi
+    spec:
+      containers:
+      - name: node-js-multi
+        image: jonbaier/node-express-multi:latest
+        ports:
+        - containerPort: 80
+        - containerPort: 8888

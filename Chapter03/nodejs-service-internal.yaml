@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-js-internal
+  labels:
+    name: node-js-internal
+spec:
+  ports:
+  - port: 80
+  selector:
+    name: node-js

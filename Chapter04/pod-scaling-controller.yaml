@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: node-js-scale
+  labels:
+    name: node-js-scale
+spec:
+  replicas: 1
+  selector:
+    name: node-js-scale
+  template:
+    metadata:
+      labels:
+        name: node-js-scale
+    spec:
+      containers:
+      - name: node-js-scale
+        image: jonbaier/pod-scaling:0.1
+        ports:
+        - containerPort: 80

@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: http-pd
+  labels:
+    name: http-pd
+spec:
+  replicas: 3
+  selector:
+    name: http-pd
+  template:
+    metadata:
+      name: http-pd
+      labels:
+        name: http-pd
+    spec:
+      containers:
+      - image: nginx:latest
+        ports:
+        - containerPort: 80
+        name: http-pd
+        volumeMounts:
+        - mountPath: /usr/share/nginx/html
+          name: gce-pd
+      volumes:
+      - name: gce-pd
+        gcePersistentDisk:
+          pdName: mysite-volume-1
+          fsType: ext4
+          readOnly: true

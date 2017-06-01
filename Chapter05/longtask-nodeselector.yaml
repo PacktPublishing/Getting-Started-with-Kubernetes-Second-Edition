@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: long-task-ns
+spec:
+  template:
+    metadata:
+      name: long-task-ns
+    spec:
+      containers:
+      - name: long-task-ns
+        image: docker/whalesay
+        command: ["cowsay",  "Finishing that task in a jiffy"]
+      restartPolicy: OnFailure
+      nodeSelector:
+        nodenickname: trusty-steve

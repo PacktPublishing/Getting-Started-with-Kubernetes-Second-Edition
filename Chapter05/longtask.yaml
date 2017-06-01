@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: long-task
+spec:
+  template:
+    metadata:
+      name: long-task
+    spec:
+      containers:
+      - name: long-task
+        image: docker/whalesay
+        command: ["cowsay",  "Finishing that task in a jiffy"]
+      restartPolicy: OnFailure

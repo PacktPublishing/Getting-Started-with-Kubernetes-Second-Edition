@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: node-gulp
+  labels:
+    name: node-gulp
+spec:
+  replicas: 1
+  selector:
+    name: node-gulp
+  template:
+    metadata:
+      labels:
+        name: node-gulp
+    spec:
+      containers:
+      - name: node-gulp
+        image: <your username>/node-gulp:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80

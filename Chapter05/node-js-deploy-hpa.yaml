@@ -1,0 +1,12 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: node-js-deploy
+spec:
+  minReplicas: 3
+  maxReplicas: 6
+  scaleTargetRef:
+    apiVersion: v1
+    kind: Deployment
+    name: node-js-deploy
+  targetCPUUtilizationPercentage: 10

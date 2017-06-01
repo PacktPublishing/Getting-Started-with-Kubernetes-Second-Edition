@@ -1,0 +1,25 @@
+{
+   "kind":"Service",
+   "apiVersion":"v1",
+   "metadata":{
+      "name":"node-js2",
+      "labels":{
+         "name":"node-js2",
+		 "app" :"node-js",
+         "deployment":"test"
+      }
+   },
+   "spec":{
+      "ports": [
+        {
+          "port":80,
+          "targetPort":"node-js2"
+        }
+      ],
+      "selector":{
+         "name":"node-js2",
+		 "app" :"node-js",
+         "deployment":"test"
+      }
+   }
+}

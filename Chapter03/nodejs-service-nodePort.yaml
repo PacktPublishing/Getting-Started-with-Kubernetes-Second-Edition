@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-js-nodeport
+  labels:
+    name: node-js-nodeport
+spec:
+  ports:
+  - port: 80
+    nodePort: 30001
+  selector:
+    name: node-js
+  type: NodePort

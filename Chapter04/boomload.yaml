@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: boomload
+spec:
+  replicas: 1
+  selector:
+    app: loadgenerator
+  template:
+    metadata:
+      labels:
+        app: loadgenerator
+    spec:
+      containers:
+      - image: williamyeh/boom
+        name: boom
+        command: ["/bin/sh","-c"]
+        args: ["while true ; do boom http://node-js-scale/ -c 10 -n 100 ; sleep 1 ; done"]

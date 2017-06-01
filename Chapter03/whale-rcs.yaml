@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: whale-ingress-a
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: whale-ingress-a
+    spec:
+      containers:
+      - name: sayhey
+        image: jonbaier/httpwhalesay:0.1
+        command: ["node", "index.js",  "Whale Type A, Here."]
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: whale-ingress-b
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: whale-ingress-b
+    spec:
+      containers:
+      - name: sayhey
+        image: jonbaier/httpwhalesay:0.1
+        command: ["node", "index.js",  "Hey man, It's Whale B, Just Chillin'."]
+        ports:
+        - containerPort: 80

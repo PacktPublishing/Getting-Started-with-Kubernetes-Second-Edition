@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: test-gce
+spec:
+  containers:
+  - image: nginx:latest
+    ports:
+    - containerPort: 80
+    name: test-gce
+    volumeMounts:
+    - mountPath: /usr/share/nginx/html
+      name: gce-pd
+  volumes:
+  - name: gce-pd
+    gcePersistentDisk:
+      pdName: mysite-volume-1
+      fsType: ext4

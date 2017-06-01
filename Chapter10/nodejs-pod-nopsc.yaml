@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+    name: node-js-nopsc
+spec:
+  containers:
+  - name: node-js-nopsc
+    image: jonbaier/node-express-info:latest
+    ports:
+    - containerPort: 80

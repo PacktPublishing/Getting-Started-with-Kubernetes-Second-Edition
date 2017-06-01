@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-js-multi
+  labels:
+    name: node-js-multi
+spec:
+  type: LoadBalancer
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+  - name: fake-admin-http
+    protocol: TCP
+    port: 8888    
+  selector:
+    name: node-js-multi

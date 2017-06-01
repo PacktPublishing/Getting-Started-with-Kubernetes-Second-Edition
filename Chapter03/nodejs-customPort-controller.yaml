@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: node-js-90
+  labels:
+    name: node-js-90
+spec:
+  replicas: 3
+  selector:
+    name: node-js-90
+  template:
+    metadata:
+      labels:
+        name: node-js-90
+    spec:
+      containers:
+      - name: node-js-90
+        image: jonbaier/node-express-info:latest
+        ports:
+        - containerPort: 80

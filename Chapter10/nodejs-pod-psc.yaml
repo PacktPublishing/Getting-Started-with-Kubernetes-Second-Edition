@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: node-js-psc
+spec:
+  containers:
+  - name: node-js-psc
+    image: jonbaier/node-express-info:latest
+    ports:
+    - containerPort: 80
+  securityContext:
+    runAsNonRoot: true

@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: boomload-deploy
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: loadgenerator-deploy
+    spec:
+      containers:
+      - image: williamyeh/boom
+        name: boom-deploy
+        command: ["/bin/sh","-c"]
+        args: ["while true ; do boom http://node-js-deploy/ -c 100 -n 500 ; sleep 1 ; done"]
