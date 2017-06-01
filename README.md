@@ -30,11 +30,11 @@ spec:
 This book will cover downloading and running the Kubernetes project. You’ll need access to a Linux system (VirtualBox will work if you are on Windows) and some familiarity with the command shell.
 Additionally, you should have a Google Cloud Platform account. You can sign up for a free trial here:
 
-https://cloud. google. com/
+https://cloud.google.com/
 
 Also, an AWS account is necessary for a few sections of the book. You can sign up for a free trial here:
 
-https://aws. amazon. com/
+https://aws.amazon.com/
 
 ## Related Products
 * [Getting Started with Kubernetes](https://www.packtpub.com/virtualization-and-cloud/getting-started-kubernetes?utm_source=github&utm_medium=repository&utm_campaign=9781784394035)
