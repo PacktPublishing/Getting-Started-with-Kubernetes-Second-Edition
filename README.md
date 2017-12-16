@@ -42,6 +42,3 @@ https://aws.amazon.com/
 * [Kubernetes Cookbook](https://www.packtpub.com/virtualization-and-cloud/kubernetes-cookbook?utm_source=github&utm_medium=repository&utm_campaign=9781785880063)
 
 * [Mastering Kubernetes](https://www.packtpub.com/virtualization-and-cloud/mastering-kubernetes?utm_source=github&utm_medium=repository&utm_campaign=9781786461001)
-
-### Suggestions and Feedback
-[Click here](https://docs.google.com/forms/d/e/1FAIpQLSe5qwunkGf6PUvzPirPDtuy1Du5Rlzew23UBp2S-P3wB-GcwQ/viewform) if you have any feedback or suggestions.
